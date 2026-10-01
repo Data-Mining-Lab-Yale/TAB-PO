@@ -1,0 +1,56 @@
+cff-version: 1.2.0
+message: "Please cite the TAB-PO manuscript and the original SciERC dataset."
+title: "TAB-PO SciERC research code and data"
+type: software
+authors:
+  - family-names: Fodeh
+    given-names: Samah
+  - family-names: Ma
+    given-names: Linhai
+  - family-names: Puthiaraju
+    given-names: Ganesh
+  - family-names: Talakokkul
+    given-names: Srivani
+  - family-names: Khan
+    given-names: Afshan
+  - family-names: Ramachandran
+    given-names: Sreeraj
+  - family-names: Irankhah
+    given-names: Elyas
+  - family-names: Roundtree
+    given-names: Aimee Kendall
+preferred-citation:
+  type: generic
+  title: "TAB-PO: Preference Optimization with a Token-Level Adaptive Barrier for Token-Critical Structured Generation"
+  authors:
+    - family-names: Fodeh
+      given-names: Samah
+    - family-names: Ma
+      given-names: Linhai
+    - family-names: Puthiaraju
+      given-names: Ganesh
+    - family-names: Talakokkul
+      given-names: Srivani
+    - family-names: Khan
+      given-names: Afshan
+    - family-names: Ramachandran
+      given-names: Sreeraj
+    - family-names: Irankhah
+      given-names: Elyas
+    - family-names: Roundtree
+      given-names: Aimee Kendall
+  notes: "Our TAB-PO manuscript accompanies this repository; publication details will be updated upon publication."
+references:
+  - type: conference-paper
+    title: "Multi-Task Identification of Entities, Relations, and Coreference for Scientific Knowledge Graph Construction"
+    authors:
+      - family-names: Luan
+        given-names: Yi
+      - family-names: He
+        given-names: Luheng
+      - family-names: Ostendorf
+        given-names: Mari
+      - family-names: Hajishirzi
+        given-names: Hannaneh
+    year: 2018
+    url: "https://aclanthology.org/D18-1360/"

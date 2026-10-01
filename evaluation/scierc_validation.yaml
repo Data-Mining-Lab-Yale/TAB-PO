@@ -1,0 +1,35 @@
+task: scierc_validation
+dataset_path: arrow
+dataset_kwargs:
+  data_files:
+    validation: data/scierc/validation.arrow
+test_split: validation
+output_type: generate_until
+num_fewshot: 0
+doc_to_text: "{{query}}"
+doc_to_target: "{{answer}}"
+process_results: !function harness_metrics.process_results
+generation_kwargs:
+  until: ["JSON_END"]
+  do_sample: false
+  temperature: 0.0
+  max_gen_toks: 4096
+metric_list:
+  - metric: entity_f1
+    aggregation: !function harness_metrics.micro_f1
+    higher_is_better: true
+  - metric: relation_f1
+    aggregation: !function harness_metrics.micro_f1
+    higher_is_better: true
+  - metric: span_f1
+    aggregation: !function harness_metrics.micro_f1
+    higher_is_better: true
+  - metric: coreference_f1
+    aggregation: !function harness_metrics.micro_f1
+    higher_is_better: true
+  - metric: json_parse_rate
+    aggregation: !function harness_metrics.mean
+    higher_is_better: true
+metadata:
+  version: '2.0'
+  protocol: paper_ordered

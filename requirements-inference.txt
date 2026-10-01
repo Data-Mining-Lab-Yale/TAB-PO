@@ -1,0 +1,4 @@
+# vLLM 0.11.2 requires PyTorch 2.9.0 and Transformers >=4.56,<5 upstream.
+-r requirements-training.txt
+lm-eval==0.4.8
+vllm==0.11.2

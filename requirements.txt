@@ -1,0 +1,3 @@
+# Linux CUDA training and inference dependencies. See docs/reproducibility.md
+# for installation and docs/validation.md for tested environments.
+-r requirements-inference.txt

@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tabpo-scierc"
+version = "0.2.0"
+description = "Token-Adaptive Barrier Preference Optimization for prepared SciERC structured generation"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["pyarrow>=18,<26", "PyYAML>=6,<7"]
+
+[tool.setuptools.packages.find]
+include = ["tabpo*"]

@@ -1,0 +1,5 @@
+# Data audits, preference construction, metrics, and lightweight tests.
+# Training is a separate environment; see requirements.txt.
+pyarrow>=18,<26
+PyYAML>=6,<7
+datasets>=3.6,<4
