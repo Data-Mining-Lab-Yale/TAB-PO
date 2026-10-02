@@ -72,8 +72,8 @@ python scripts/verify_splits.py --data-dir /tmp/scierc-regenerated
 
 Arrow serialization can vary between library versions. We preserve and verify the held-out test's queries, contexts, annotations, and row order through source-row hashes; dropping metadata changes file bytes. Audit reconstructed identities and memberships as well as checksums. The main pipeline deliberately uses the checked-in canonical split; changing it requires updating its task YAML paths and provenance together.
 
-## Boundaries and rights
+## Data boundaries
 
 SFT uses training data with a separate validation dataset. Post-SFT inference for confusion extraction uses exactly the 53 validation documents. The confusion builder rejects duplicate, incomplete, or foreign/test prediction logs. Preference train and validation sets come from distinct document pools, and provenance checks reject test Arrow even if renamed. Test generation runs after both model training stages.
 
-SciERC's benchmark and our prepared conversion have separate rights and terms; see [LICENSING.md](../LICENSING.md). The original publication is [Luan et al. (2018)](https://aclanthology.org/D18-1360/).
+The original publication is [Luan et al. (2018)](https://aclanthology.org/D18-1360/).

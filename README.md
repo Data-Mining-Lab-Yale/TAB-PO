@@ -2,11 +2,11 @@
 
 Our research implementation of **TAB-PO: Preference Optimization with a Token-Level Adaptive Barrier for Token-Critical Structured Generation**.
 
-[Paper PDF](paper/tab-po.pdf) · [Reproduction guide](docs/reproducibility.md) · [Data card](data/README.md) · [Metrics and method](docs/methods.md) · [Validation record](docs/validation.md) · [Citation](CITATION.cff)
+[Main paper PDF](paper/TAB_PO__main_paper.pdf) · [Supplementary material PDF](paper/TAB_PO__supplementary_material.pdf) · [Reproduction guide](docs/reproducibility.md) · [Data card](data/README.md) · [Metrics and method](docs/methods.md) · [Validation record](docs/validation.md) · [Citation](CITATION.cff)
 
 TAB-PO adds a confidence-gated preferred-token likelihood penalty to a reference-adjusted preference objective. This release runs the SciERC sequence: **SFT → validation inference → confusion-aware preferences → TAB-PO → held-out test inference**. Our frozen reference is the merged SFT model. Model outputs contain entities, typed relations, and coreference clusters as JSON.
 
-We provide a document-level, iteratively stratified **297/53/100 train/validation/test split**, CPU data and metric checks, an offline training smoke test, and a resumable GPU pipeline. The paper directory contains the manuscript PDF and its description. Manuscript sources, original archives, and the raw notebook are excluded.
+We provide a document-level, iteratively stratified **297/53/100 train/validation/test split**, CPU data and metric checks, an offline training smoke test, and a resumable GPU pipeline. The paper directory contains the main paper and supplementary material PDFs and their description. Manuscript sources, original archives, and the raw notebook are excluded.
 
 ## Start on a CPU
 
@@ -55,7 +55,7 @@ Existing `lm-eval --log_samples` predictions can be scored without model weights
 python scripts/evaluate_samples.py --samples path/to/samples.jsonl --split test
 ```
 
-## Results reported in the manuscript
+## Results
 
 The table reports TAB-PO scores from our manuscript, averaged over three runs. Scores are percentages; evaluators emit fractions in [0, 1].
 
@@ -72,7 +72,7 @@ The table reports TAB-PO scores from our manuscript, averaged over three runs. S
 
 | Path | Purpose |
 | --- | --- |
-| [paper/](paper/README.md) | Manuscript PDF. |
+| [paper/](paper/README.md) | Main paper and supplementary material PDFs. |
 | [data/](data/README.md) | Arrow splits, hashes, label prevalence, source provenance. |
 | [tabpo/objective.py](tabpo/objective.py) | Small, testable TAB-PO loss implementation. |
 | [tabpo/prompting.py](tabpo/prompting.py) | Shared chat serialization and completion mask. |
@@ -81,8 +81,6 @@ The table reports TAB-PO scores from our manuscript, averaged over three runs. S
 | [tests/](tests/) | Leakage, schema, objective, and metric regression checks. |
 | [docs/](docs/) | Methods, reproduction steps, and validation record. |
 
-## Scope, citation, and licensing
+## Scope and citation
 
 Our paper also studies PV-Miner; this repository covers SciERC. We provide the prepared SciERC records and split provenance. The original benchmark is [Luan et al., EMNLP 2018](https://aclanthology.org/D18-1360/). Cite it and TAB-PO using [CITATION.cff](CITATION.cff).
-
-See [licensing status](LICENSING.md) for code and artifact terms.

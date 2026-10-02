@@ -31,7 +31,7 @@ def command_plan(args):
     sft, merged = run / "sft", run / "sft_merged"
     conf = run / "validation_confusions"
     pt, pv = run / "preferences_train", run / "preferences_validation"
-    final = run / "tabpo_merged"
+    merged_tabpo = run / "tabpo_merged"
     launch = [python, "-m", "torch.distributed.run", "--standalone", f"--nproc_per_node={args.num_gpus}"]
     def inference(model, tasks, output):
         return [python, "-m", "lm_eval", "--model", "vllm", "--model_args",
@@ -62,9 +62,9 @@ def command_plan(args):
                   "--beta", "0.5", "--policy_prob_threshold", "0.87", "--sft_barrier_weight", str(args.barrier_weight),
                   "--num_train_epochs", "1", "--per_device_train_batch_size", "1", "--gradient_accumulation_steps", "1",
                   "--learning_rate", str(args.tabpo_lr), "--max_grad_norm", "1.0", "--bf16", "true", "--eval_strategy", "no", "--seed", str(args.seed)],
-        [python, "scripts/merge_lora_adapter.py", "--base", str(merged), "--adapter", str(run / "tabpo"), "--out", str(final), "--dtype", "bf16"],
+        [python, "scripts/merge_lora_adapter.py", "--base", str(merged), "--adapter", str(run / "tabpo"), "--out", str(merged_tabpo), "--dtype", "bf16"],
         inference(merged, "scierc_test", run / "sft_test_inference"),
-        inference(final, "scierc_test", run / "tabpo_test_inference"),
+        inference(merged_tabpo, "scierc_test", run / "tabpo_test_inference"),
     ]
     return list(zip(STAGES, plans))
 

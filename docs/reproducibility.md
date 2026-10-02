@@ -45,10 +45,10 @@ The same options work through `bash scripts/run_pipeline.sh`. The wrapper also p
 | `preferences-validation` | Construct pairs from separate validation gold. | `preferences_validation/` and summary |
 | `tabpo` | Load merged SFT, cache frozen-reference scores, optimize preferences. | `tabpo/` adapter and training artifacts |
 | `merge-tabpo` | Merge nonzero TAB-PO adapter into the SFT base. | `tabpo_merged/` |
-| `test-sft` | Final SFT test inference using Appendix F metrics. | `sft_test_inference/` |
-| `test-tabpo` | Final TAB-PO test inference using Appendix F metrics. | `tabpo_test_inference/` |
+| `test-sft` | SFT test inference using Appendix F metrics. | `sft_test_inference/` |
+| `test-tabpo` | TAB-PO test inference using Appendix F metrics. | `tabpo_test_inference/` |
 
-**Post-SFT confusion inference uses validation, not test.** The YAML field `test_split: validation` selects the Arrow validation partition through the harness evaluation API. Its file is `data/scierc/validation.arrow`. Final test stages occur after both training stages. Bootstrap iterations are disabled because custom intermediate metric values are count tuples; the release does not report bootstrap intervals. YAML uses `max_gen_toks=4096`, supported by the harness adapter, rather than forwarding a duplicate `max_tokens` parameter to vLLM.
+**Post-SFT confusion inference uses validation, not test.** The YAML field `test_split: validation` selects the Arrow validation partition through the harness evaluation API. Its file is `data/scierc/validation.arrow`. Test stages occur after both training stages. Bootstrap iterations are disabled because custom intermediate metric values are count tuples; the release does not report bootstrap intervals. YAML uses `max_gen_toks=4096`, supported by the harness adapter, rather than forwarding a duplicate `max_tokens` parameter to vLLM.
 
 The orchestrator records commands, configuration, installed versions, split audit, `pip_freeze.txt`, and completed stages. It stops on the first failed subprocess. A validation directory must have exactly one sample log; archive stale logs before resuming inference rather than letting an arbitrary file be selected.
 

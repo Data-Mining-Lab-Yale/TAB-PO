@@ -1,9 +1,7 @@
-# TAB-PO manuscript
+# TAB-PO paper and supplementary material
 
-[Read our manuscript](tab-po.pdf).
+[Main paper PDF](TAB_PO__main_paper.pdf) · [Supplementary material PDF](TAB_PO__supplementary_material.pdf).
 
-The PDF includes the article and appendices. We will replace this working manuscript with the final revision after completing the paper revisions.
+The main paper and supplementary material are available as separate PDFs for reviewers and readers.
 
-Current PDF: 51 pages. SHA-256: `6d2d72d1e8bf79b8d1a541071988742003eb77ef5cf8f5d7906ef6700ee63123`.
-
-We distribute the manuscript as a PDF for reviewers and readers. Authoring sources and separate figure assets are maintained outside this repository.
+Authoring sources and separate figure assets are maintained outside this repository.

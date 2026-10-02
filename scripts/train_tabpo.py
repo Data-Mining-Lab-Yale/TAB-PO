@@ -988,7 +988,7 @@ def _supervised_logits_window(labels: torch.Tensor) -> Tuple[int, int]:
     Return:
       start: original logits start position.
              For causal LM, logits at position i-1 predict label at position i.
-      keep:  number of final logits to request through num_logits_to_keep.
+      keep:  number of trailing logits to request through num_logits_to_keep.
 
     labels shape: [B, T]
     """

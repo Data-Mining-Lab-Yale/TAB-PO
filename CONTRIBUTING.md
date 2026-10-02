@@ -13,4 +13,4 @@ python -m unittest discover -s tests -v
 
 For objective, tokenizer, adapter, or training-loop changes, install the training dependencies and also run `python scripts/smoke_test_training.py`. Tests must exercise a meaningful failure mode or scientific invariant, rather than mirroring the implementation.
 
-Preserve held-out test documents and annotations. Document changes to split membership, matching rules, objective normalization, prompts, or sampling. Evaluation uses strict relation argument order from Appendix F. Include validation results when proposing a change. See [licensing status](LICENSING.md) for contribution and reuse terms.
+Preserve held-out test documents and annotations. Document changes to split membership, matching rules, objective normalization, prompts, or sampling. Evaluation uses strict relation argument order from Appendix F. Include validation results when proposing a change.

@@ -13,9 +13,9 @@ def verify(root=ROOT):
     paths = [p for p in root.rglob("*") if p.is_file() and
              not any(part in {".git", "__pycache__", ".venv", "outputs", ".verification", ".pytest_cache"}
                      for part in p.relative_to(root).parts)]
-    expected_paper = {"README.md", "tab-po.pdf"}
+    expected_paper = {"README.md", "TAB_PO__main_paper.pdf", "TAB_PO__supplementary_material.pdf"}
     if {p.name for p in (root / "paper").iterdir()} != expected_paper:
-        errors.append("paper/ must contain only README.md and tab-po.pdf")
+        errors.append("paper/ must contain only README.md, TAB_PO__main_paper.pdf, and TAB_PO__supplementary_material.pdf")
     for path in paths:
         relative = path.relative_to(root).as_posix()
         if path.suffix.lower() in {".zip", ".tex", ".bib", ".ipynb"}:
